@@ -64,6 +64,19 @@ export default function Home() {
   const removeFromStack = (id: string) => { const item = stack.find((technology) => technology.id === id); setStack((current) => current.filter((technology) => technology.id !== id)); if (item) toast.info(`${item.name} removed from your stack.`) }
   const clearStack = () => { if (stack.length) { setStack([]); toast.info('Your stack has been cleared.') } }
 
+  if (loading) {
+    return <main className="flex min-h-screen items-center justify-center bg-white px-6 text-center" aria-busy="true" aria-live="polite">
+      <div className="flex flex-col items-center">
+        <div className="relative flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-theme shadow-[0_12px_35px_rgba(209,94,143,0.2)]">
+          <div className="h-10 w-10 animate-spin rounded-full border-[3px] border-white/35 border-t-white" />
+        </div>
+        <h1 className="mt-6 text-xl font-extrabold tracking-tight text-slate-950">Dev Stack</h1>
+        <p className="mt-2 text-sm text-slate-400">Preparing your development stack...</p>
+        <div className="mt-6 h-1.5 w-36 overflow-hidden rounded-full bg-slate-100"><div className="h-full w-2/3 animate-pulse rounded-full bg-gradient-theme" /></div>
+      </div>
+    </main>
+  }
+
   return <div className="min-h-screen bg-white text-slate-900">
     <header className="sticky top-0 z-30 border-b border-slate-100 bg-white/95 backdrop-blur"><div className="relative mx-auto flex h-[44px] max-w-[1175px] items-center justify-between px-3 sm:h-[68px] sm:px-5 lg:px-0">
       <button className="md:hidden" aria-label="Open navigation" onClick={() => setMobileOpen(!mobileOpen)}><Menu className="h-7 w-7 text-slate-500" strokeWidth={1.5} /></button><a href="#home" className="absolute left-1/2 -translate-x-1/2 md:static md:mr-auto"><Logo /></a>
