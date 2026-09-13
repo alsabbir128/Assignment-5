@@ -3,7 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dev Stack — Build Your Ideal Development Stack</title>
+    <style>
+      :root {
+        --g: linear-gradient(110deg, #ff6b22, #f72585 52%, #8b36e8);
+        --ink: #111a31;
+        --muted: #68758e;
+        --line: #e8edf5;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button {
+        font: inherit;
+        cursor: pointer;
+      }
+      .container {
+        width: min(1100px, calc(100% - 48px));
+        margin: auto;
+      }
+      .navbar-wrap {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        background: #fffffff2;
+        border-bottom: 1px solid #edf0f5;
+        backdrop-filter: blur(12px);
+      }
+      .navbar {
+        height: 68px;
+        display: flex;
+        align-items: center;
+        gap: 34px;
+      }
+      .brand img {
+        width: 123px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        margin: auto;
+        font-size: 12px;
+        color: #536078;
+      }
+      .nav-links a:hover,
+      .nav-links .active {
+        color: #ed2784;
+      }
+      .nav-actions {
+        display: flex;
+        gap: 22px;
+        font-size: 12px;
+        color: #49546b;
+      }
+      .mobile-menu-button {
+        display: none;
+        border: 0;
+        background: transparent;
+      }
+      .mobile-menu-button img {
+        width: 20px;
+      }
+      .gradient-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 0;
+        border-radius: 7px;
+        padding: 12px 17px;
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+        background: var(--g);
+        box-shadow: 0 8px 18px #ee25792e;
+      }
+      .small-button {
+        border-radius: 20px;
+        padding: 10px 18px;
+      }
+      .hero {
+        min-height: 490px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        padding: 62px 0 44px;
+      }
+      .hero-copy {
+        max-width: 570px;
+      }
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(38px, 4.5vw, 56px);
+        line-height: 1.02;
+        letter-spacing: -2.4px;
+      }
+      .hero h1 span,
+      .section-heading h2 span {
+        background: var(--g);
+        background-clip: text;
+        color: transparent;
+      }
+      .hero-description {
+        max-width: 480px;
+        margin: 24px 0 30px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.65;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 11px;
+      }
+      .outline-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 144px;
+        padding: 11px 17px;
+        border: 1px solid #e1e6ee;
+        border-radius: 7px;
+        color: #4f5a72;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .hero-art {
+        width: 390px;
+        flex: 0 0 390px;
+      }
+      .hero-art img {
+        width: 100%;
+        display: block;
+      }
+      .technologies-section {
+        padding: 18px 0 95px;
+      }
+      .section-heading {
+        display: flex;
+        align-items: end;
+        gap: 25px;
+        margin-bottom: 28px;
+      }
+      .section-heading h2 {
+        margin: 0;
+        font-size: 30px;
+        letter-spacing: -1.2px;
+      }
+      .section-heading p {
+        margin: 8px 0 0;
+        color: #78849a;
+        font-size: 13px;
+      }
+      .section-rule {
+        height: 1px;
+        flex: 1;
+        background: #edf0f5;
+        margin-bottom: 9px;
+      }
+      .builder-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 240px;
+        gap: 22px;
+        align-items: start;
+      }
+      .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 17px;
+      }
+      .tech-card {
+        min-height: 246px;
+        display: flex;
+        flex-direction: column;
+        padding: 17px 17px 14px;
+        border: 1px solid #e9eef6;
+        border-radius: 13px;
+        background: white;
+        box-shadow: 0 4px 16px #1a2f5209;
+        transition: 0.2s;
+      }
+      .tech-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 24px #1a2f5214;
+      }
+      .card-top {
+        display: flex;
+        justify-content: space-between;
+      }
+      .tech-icon {
+        font-size: 20px;
+        font-weight: 800;
+      }
+      .badge {
+        padding: 5px 9px;
+        border-radius: 20px;
+        background: #f0f8ff;
+        color: #1598d1;
+        font-size: 9px;
+        font-weight: bold;
+      }
+      .tech-card h3 {
+        margin: 13px 0 8px;
+        font-size: 16px;
+      }
+      .tech-card p {
+        min-height: 52px;
+        margin: 0;
+        color: #7b879b;
+        font-size: 11px;
+        line-height: 1.55;
+      }
+      .card-meta {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 7px;
+        margin-top: 13px;
+        padding-top: 10px;
+        border-top: 1px solid #f0f2f6;
+        color: #7a8799;
+        font-size: 9px;
+      }
+      .card-meta span:first-child {
+        padding: 5px 7px;
+        border-radius: 4px;
+        background: #f5f7fa;
+      }
+      .rating {
+        color: #e9a800;
+      }
+    </style>
 </head>
 <body>
     
