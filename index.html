@@ -257,6 +257,78 @@
       .selected .add-button {
         background: #f02482;
       }
+      .selected .add-button {
+        background: #f02482;
+      }
+      .stack-sidebar {
+        position: sticky;
+        top: 90px;
+        min-height: 242px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 20px 16px 16px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        box-shadow: 0 5px 18px #1a2f520a;
+      }
+      .stack-sidebar h2 {
+        margin: 0;
+        font-size: 15px;
+      }
+      .stack-count {
+        margin: 6px 0 0;
+        color: #9aa7bd;
+        font-size: 11px;
+      }
+      .empty-stack {
+        display: grid;
+        min-height: 67px;
+        place-items: center;
+        border: 1px dashed #dce3ef;
+        border-radius: 10px;
+        color: #a0acc0;
+        font-size: 11px;
+      }
+      .stack-items {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+      .stack-item {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 9px;
+        border: 1px solid #dfe6f1;
+        border-radius: 8px;
+      }
+      .stack-item strong {
+        display: block;
+        font-size: 10px;
+      }
+      .stack-item small {
+        display: block;
+        margin-top: 3px;
+        color: #8190a7;
+        font-size: 8px;
+      }
+      .stack-item button {
+        margin-left: auto;
+        border: 0;
+        background: transparent;
+        color: #97a7bd;
+      }
+      .remove-all {
+        margin-top: auto;
+        border: 1px solid #ffb9b0;
+        border-radius: 6px;
+        padding: 9px;
+        background: white;
+        color: #f04c43;
+        font-size: 11px;
+        font-weight: bold;
+      }
     </style>
 </head>
 <body>
