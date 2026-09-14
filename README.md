@@ -8,8 +8,7 @@ Run the project locally and open the preview in your browser. You can also publi
 
 ## Technology Used
 
-- Next.js 16 and React 19
-- React + Vite alternative app
+- React 19 with Vite
 - TypeScript
 - Tailwind CSS
 - Lucide React icons
@@ -23,25 +22,9 @@ Run the project locally and open the preview in your browser. You can also publi
 - **Responsive interface:** Use the app comfortably on mobile, tablet, and desktop.
 - **Loading experience:** See a branded loading screen while the application initializes.
 
-## Project Versions
-
-### Next.js version
-
-The main application uses the Next.js App Router:
+## Running the project
 
 ```bash
-pnpm install
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000).
-
-### React + Vite version
-
-A separate Vite version is available in the `vite-app` directory:
-
-```bash
-cd vite-app
 pnpm install
 pnpm dev
 ```
@@ -51,14 +34,10 @@ Open [http://localhost:5173](http://localhost:5173).
 ## Project Structure
 
 ```text
-app/                         Next.js application
-app/page.tsx                 Main Next.js page
-app/globals.css              Shared global styles
-data/technologies.json       Technology card data
-vite-app/                    Separate React + Vite application
-vite-app/src/App.tsx         Vite application component
+vite-app/                    React + Vite application
+vite-app/src/App.tsx         Main application component
 vite-app/src/main.tsx        Vite entry point
-vite-app/src/data/           Vite technology data
+vite-app/src/data/           Technology data
 ```
 
 ## React Questions
@@ -77,7 +56,7 @@ Props are data passed from a parent to a child. State is data managed inside a c
 
 ### What does the `useEffect` hook do, and why did you need it to load the JSON data?
 
-`useEffect` runs code after rendering. It helps initialize the technology data and finish the loading state when the page is ready.
+`useEffect` runs code after rendering. It helps finish the loading state after the technology data is ready in the browser.
 
 ### Why does every item in a `.map()` list need a unique `key` prop?
 
@@ -105,4 +84,4 @@ This project is available for learning and personal use.
 
 ---
 
-Built with React, Next.js, and Vite for developers choosing their next technology stack.
+Built with React and Vite for developers choosing their next technology stack.
